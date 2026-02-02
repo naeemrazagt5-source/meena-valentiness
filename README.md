@@ -1,1 +1,307 @@
-# meena-valentiness
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Meena ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ff5f9e, #ff9a9e);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: auto;
+}
+
+button {
+  background: white;
+  color: #ff5f9e;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sticker {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  display: none;
+  z-index: 10;
+  animation: stickerPop 0.5s ease-out;
+}
+
+@keyframes stickerPop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: confettiFall 4s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="sticker" class="sticker"></div>
+
+<section id="intro">
+  <h1>Hi Meena ❤️</h1>
+  <p>
+    This is not just a website…  
+    It’s something made with my heart, only for you.
+  </p>
+  <button onclick="nextSection()">Continue</button>
+</section>
+
+<section id="feelings" style="display:none">
+  <h1>My Feelings 💕</h1>
+  <p>
+    Every smile of yours makes my world brighter.  
+    Every moment with you feels special.  
+    I don’t want a future without you in it.
+  </p>
+  <button onclick="nextSection()">Next</button>
+</section>
+
+<section id="question1" style="display:none">
+  <h1>Question 1: What's Your Favorite Memory with Me? 🥰</h1>
+  <p>Pick one that makes you smile!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Our first date', 1)">Our first date</button>
+    <button onclick="answer(this, 'That surprise picnic', 1)">That surprise picnic</button>
+    <button onclick="answer(this, 'Dancing in the rain', 1)">Dancing in the rain</button>
+    <button onclick="answer(this, 'All of them!', 1)">All of them!</button>
+  </div>
+</section>
+
+<section id="question2" style="display:none">
+  <h1>Question 2: If We Could Travel Anywhere Right Now, Where? ✈️</h1>
+  <p>Let's dream big!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Paris', 2)">Paris</button>
+    <button onclick="answer(this, 'Beach paradise', 2)">Beach paradise</button>
+    <button onclick="answer(this, 'Mountain adventure', 2)">Mountain adventure</button>
+    <button onclick="answer(this, 'Stay home with you', 2)">Stay home with you</button>
+  </div>
+</section>
+
+<section id="question3" style="display:none">
+  <h1>Question 3: What's the Funniest Thing I've Ever Done? 😂</h1>
+  <p>Be honest, I can take it!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'That silly dance', 3)">That silly dance</button>
+    <button onclick="answer(this, 'Burning dinner', 3)">Burning dinner</button>
+    <button onclick="answer(this, 'Getting lost', 3)">Getting lost</button>
+    <button onclick="answer(this, 'Everything', 3)">Everything</button>
+  </div>
+</section>
+
+<section id="question4" style="display:none">
+  <h1>Question 4: What's Your Dream Date Night? 🍝</h1>
+  <p>Let's make it happen!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Romantic dinner', 4)">Romantic dinner</button>
+    <button onclick="answer(this, 'Movie marathon', 4)">Movie marathon</button>
+    <button onclick="answer(this, 'Stargazing', 4)">Stargazing</button>
+    <button onclick="answer(this, 'Adventure day', 4)">Adventure day</button>
+  </div>
+</section>
+
+<section id="question5" style="display:none">
+  <h1>Question 5: What Are Your Biggest Dreams? 🌟</h1>
+  <p>Tell me what you wish for in life!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Travel the world', 5)">Travel the world</button>
+    <button onclick="answer(this, 'Start a family', 5)">Start a family</button>
+    <button onclick="answer(this, 'Build a career', 5)">Build a career</button>
+    <button onclick="answer(this, 'Live happily ever after', 5)">Live happily ever after</button>
+  </div>
+</section>
+
+<section id="question6" style="display:none">
+  <h1>Question 6: How Many Children Do You Want? 👶</h1>
+  <p>Let's plan our future family!</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'None', 6)">None</button>
+    <button onclick="answer(this, '1 or 2', 6)">1 or 2</button>
+    <button onclick="answer(this, '3 or more', 6)">3 or more</button>
+    <button onclick="answer(this, 'As many as we can', 6)">As many as we can</button>
+  </div>
+</section>
+
+<section id="question7" style="display:none">
+  <h1>Question 7: What's Your Favorite Country to Visit or Live In? 🌍</h1>
+  <p>Where should we go next?</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Japan', 7)">Japan</button>
+    <button onclick="answer(this, 'Italy', 7)">Italy</button>
+    <button onclick="answer(this, 'Australia', 7)">Australia</button>
+    <button onclick="answer(this, 'Anywhere with you', 7)">Anywhere with you</button>
+  </div>
+</section>
+
+<section id="question8" style="display:none">
+  <h1>Question 8: What's Your Ultimate Wish for Us? 💑</h1>
+  <p>What do you want most in our relationship?</p>
+  <div class="question-buttons">
+    <button onclick="answer(this, 'Endless adventures', 8)">Endless adventures</button>
+    <button onclick="answer(this, 'A cozy home', 8)">A cozy home</button>
+    <button onclick="answer(this, 'Growing old together', 8)">Growing old together</button>
+    <button onclick="answer(this, 'All the love', 8)">All the love</button>
+  </div>
+</section>
+
+<section id="proposal" style="display:none">
+  <h1>One Question 💍</h1>
+  <p>
+    Meena, will you be mine forever?
+  </p>
+  <button onclick="yes()">YES ❤️</button>
+</section>
+
+<script>
+let current = 0;
+const sections = document.querySelectorAll("section");
+const sticker = document.getElementById("sticker");
+
+const stickers = {
+  1: "🤚❤️", // Child putting hand on heart (viral meme)
+  2: "😂", // Laughing
+  3: "🤪", // Crazy face
+  4: "😍", // Heart eyes
+  5: "🌈", // Rainbow
+  6: "👨‍👩‍👧‍👦", // Family
+  7: "🗺️", // Map
+  8: "💑" // Couple
+};
+
+function nextSection() {
+  sections[current].style.display = "none";
+  current++;
+  sections[current].style.display = "flex";
+}
+
+function answer(button, choice, questionNum) {
+  // Add a cute animation to the button clicked
+  button.classList.add('bounce');
+  // Show the sticker
+  sticker.innerHTML = stickers[questionNum];
+  sticker.style.display = "block";
+  setTimeout(() => {
+    button.classList.remove('bounce');
+    sticker.style.display = "none";
+    nextSection();
+  }, 2000); // Show sticker for 2 seconds
+}
+
+function yes() {
+  document.body.innerHTML = `
+    <section>
+      <h1 class="spin">❤️ She Said YES ❤️</h1>
+      <p>This is the beginning of our forever.</p>
+    </section>
+  `;
+  // Trigger confetti animation
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.innerHTML = "🎉";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.fontSize = Math.random() * 20 + 10 + "px";
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 4000);
+    }, i * 50);
+  }
+}
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 30 + 15 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
